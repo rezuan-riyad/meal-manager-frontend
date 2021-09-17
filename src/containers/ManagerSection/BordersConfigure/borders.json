@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name" : "John Doe",
+    "flat": "33, Nikunjo",
+    "passcode" : "kuyei",
+    "balance": 3000
+  },
+  {
+    "id": 2,
+    "name" : "Jane Doe",
+    "flat": "33, Nikunjo",
+    "passcode" : "kuyei",
+    "balance": 3000
+  },
+  {
+    "id": 3,
+    "name" : "Richel Doe",
+    "flat": "33, Nikunjo",
+    "passcode" : "kuyei",
+    "balance": 3000
+  }
+]
