@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react'
-import { BorderContext } from '../../../contexts/BorderContext'
+import { BorderContext } from '../../../_contexts/BorderContext'
 
 import { Box, Typography, Switch, Button, Link } from '@material-ui/core'
 import { nanoid } from 'nanoid'
 import CustomTextField from '../../../components/CustomTextField'
-import { addNewBorder } from '../../../actions/bordersAction'
+import { addNewBorder } from '../../../_actions/borders.action'
 import PropTypes from 'prop-types';
 
 AddBorder.propTypes = {

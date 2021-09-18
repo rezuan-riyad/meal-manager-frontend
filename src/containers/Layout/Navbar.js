@@ -107,7 +107,8 @@ export default function Navbar() {
             {[{ field: 'Configure Courses', link: "/configure-courses" },
             { field: 'Configure Borders', link: "/configure-borders" },
             { field: 'Add Shopping Data', link: "/add-shopping-data"},
-            { field: 'Change Managership', link: "/change-managership"}].map((item, i) => (
+            { field: 'Change Managership', link: "/change-managership"},
+            { field: 'Set For Tomorrow', link: "/set-for-tomorrow"}].map((item, i) => (
               <ListItem key={i} onClick={handleClose}>
                 <Link to={item.link}>
                   <Typography variant="body2">{item.field}</Typography>

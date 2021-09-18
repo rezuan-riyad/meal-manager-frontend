@@ -1,5 +1,5 @@
 import React, { useReducer, createContext } from 'react'
-import { bordersReducer, initState } from '../reducers/borderReducer'
+import { bordersReducer, initState } from '../_reducers/borders.reducer'
 
 export const BorderContext = createContext(null)
 

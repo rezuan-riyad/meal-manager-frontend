@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { TextField, Box } from '@material-ui/core'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
-import { GlobalContext } from '../../contexts/GlobalContext'
+import { GlobalContext } from '../../_contexts/GlobalContext'
 import { getDatesInWeek, getWeekOptions } from '../../utilities/dateMonthYear'
 import { months } from '../../utilities/dateMonthYear'
 

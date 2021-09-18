@@ -6,7 +6,7 @@ import { StyledTableCell } from '../../styles/customComponent'
 import React, { useContext } from 'react'
 import Layout from '../Layout'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
-import { GlobalContext } from '../../contexts/GlobalContext'
+import { GlobalContext } from '../../_contexts/GlobalContext'
 
 const StyledTableRow = withStyles((theme) => ({
   root: {

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import CloseIcon from '@material-ui/icons/Close';
-import { BorderContext } from '../../../contexts/BorderContext'
+import { BorderContext } from '../../../_contexts/BorderContext'
 import {
   Divider, Typography, Paper, Button, TableHead,
   TableRow, Table, TableCell, TableBody, TableContainer,

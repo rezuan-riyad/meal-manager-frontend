@@ -1,5 +1,5 @@
 import React, { createContext, useState, useReducer, useEffect } from 'react'
-import { initState, dataReducer } from '../reducers/dataReducer'
+import { initState, dataReducer } from '../_reducers/dataReducer'
 import { getWeekOptions, getDatesInWeek, formateDate } from '../utilities/dateMonthYear'
 import { generateData, generateMealData} from '../json/fakeDataQuery' 
 

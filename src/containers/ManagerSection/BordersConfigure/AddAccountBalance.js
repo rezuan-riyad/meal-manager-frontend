@@ -8,8 +8,8 @@ import Alert from '@material-ui/lab/Alert';
 import CustomTextField from '../../../components/CustomTextField'
 import CustomAutocomplete from '../../../components/CustomAutocomplete'
 import Selection from '../../../components/Selection'
-import { BorderContext } from '../../../contexts/BorderContext';
-import { add_account } from '../../../actions/bordersAction'
+import { BorderContext } from '../../../_contexts/BorderContext';
+import { add_account } from '../../../_actions/borders.action'
 
 const useStyles = makeStyles(theme => ({
   grid: {

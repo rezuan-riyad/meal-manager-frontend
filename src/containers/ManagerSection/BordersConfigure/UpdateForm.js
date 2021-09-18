@@ -7,8 +7,8 @@ import Alert from '@material-ui/lab/Alert';
 import CloseIcon from '@material-ui/icons/Close';
 
 import CustomTextField from '../../../components/CustomTextField'
-import { update_border } from '../../../actions/bordersAction';
-import { BorderContext } from '../../../contexts/BorderContext';
+import { update_border } from '../../../_actions/borders.action';
+import { BorderContext } from '../../../_contexts/BorderContext';
 
 const editFormStyles = makeStyles(theme => ({
   backdrop: {

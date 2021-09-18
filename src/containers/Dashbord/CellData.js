@@ -3,7 +3,7 @@ import { IconButton, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import { GlobalContext } from '../../contexts/GlobalContext';
+import { GlobalContext } from '../../_contexts/GlobalContext';
 
 const useStyles = makeStyles((theme) => ({
   cell: {

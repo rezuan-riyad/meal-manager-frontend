@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import BorderContextProvider from '../../../contexts/BorderContext'
+import BorderContextProvider from '../../../_contexts/BorderContext'
 
 import { Box, Container, List, ListItem } from '@material-ui/core'
 import PropTypes from 'prop-types';

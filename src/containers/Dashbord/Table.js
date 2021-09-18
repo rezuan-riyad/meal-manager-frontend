@@ -13,7 +13,7 @@ import CellData from './CellData';
 
 import mealData from '../../json/mealData.json'
 import { generateMealData } from '../../json/fakeDataQuery'
-import { GlobalContext } from '../../contexts/GlobalContext';
+import { GlobalContext } from '../../_contexts/GlobalContext';
 import Footer from './Footer'
 import { Link } from 'react-router-dom';
 

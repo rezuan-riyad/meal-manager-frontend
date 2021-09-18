@@ -4,7 +4,7 @@ import { Paper, InputBase, IconButton } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { BorderContext } from '../../../contexts/BorderContext';
+import { BorderContext } from '../../../_contexts/BorderContext';
 import useDebounce from '../../../customHooks/useDebounce';
 
 const useStyles = makeStyles(theme => ({
