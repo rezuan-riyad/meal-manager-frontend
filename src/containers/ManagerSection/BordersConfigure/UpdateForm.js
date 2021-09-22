@@ -9,6 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import CustomTextField from '../../../components/CustomTextField'
 import { update_border } from '../../../_actions/borders.action';
 import { BorderContext } from '../../../_contexts/BorderContext';
+import Backdrop from '../../../components/Backdrop';
 
 const editFormStyles = makeStyles(theme => ({
   backdrop: {
@@ -21,16 +22,9 @@ const editFormStyles = makeStyles(theme => ({
     zIndex: 100
   },
   form: {
-    background: "white",
-    position: "absolute",
-    top: "50%",
-    right: "50%",
-    transform: "translate(50%, -50%)",
     minWidth: "300px",
     maxWidth: "400px",
-    padding: theme.spacing(3),
-    paddingTop: 0,
-    margin: "30px auto"
+    padding: "0 16px 16px 16px"
   },
   alert: {
     padding: 0,
@@ -45,27 +39,12 @@ UpdateForm.propTypes = {
 }
 
 export default function UpdateForm(props) {
-  const { border, setShowEditForm } = props
+  const { border, setShowEditForm, showEditForm } = props
   const { bordersState, dispatch } = useContext(BorderContext)
   const classes = editFormStyles()
   const formRef = useRef(null)
   const closeBtnRef = useRef(null)
   const [editableBorder, setEditableBorder] = useState(border)
-
-  const handleClickEvent = (e) => {
-    // when user click outside of form or close btn
-    if (!formRef.current.contains(e.target) ||
-      closeBtnRef.current.contains(e.target)) {
-      setShowEditForm(false)
-    }
-  }
-  useEffect(() => {
-    window.addEventListener("click", handleClickEvent)
-    return () => {
-      dispatch({ type: "BORDER/RESET" })
-      window.removeEventListener("click", handleClickEvent)
-    }
-  }, [])
 
   const handleBorderChange = (e) => {
     setEditableBorder({
@@ -79,9 +58,15 @@ export default function UpdateForm(props) {
     e.stopPropagation()
     update_border(dispatch, editableBorder)
   }
+  const handleFormClose = () => {
+    setShowEditForm(false)
+  }
 
   return (
-    <div className={classes.backdrop}>
+    <Backdrop 
+      onClose={handleFormClose}
+      childRef={formRef}
+      closeButtonRef={closeBtnRef}>
       <Box ref={formRef} className={classes.form}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <h4>Update Border Data</h4>
@@ -141,6 +126,6 @@ export default function UpdateForm(props) {
           </Box>
         </form>
       </Box>
-    </div>
+    </Backdrop>
   )
 }

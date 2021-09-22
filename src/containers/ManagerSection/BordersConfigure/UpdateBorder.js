@@ -5,7 +5,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import UpdateForm from './UpdateForm';
-
+import CustomButton from '../../../components/CustomButton';
 import { makeStyles } from '@material-ui/core';
 import { Link } from '@material-ui/core';
 
@@ -36,7 +36,7 @@ export default function UpdateBorder(props) {
         {
           borders.length != 0 ?
             borders.map(border => (
-              <DisplayGrid border={border}  key={border.id} />
+              <DisplayGrid border={border} key={border.id} />
             )) :
             (
               <Grid item xs={12}>
@@ -62,12 +62,13 @@ const DisplayGrid = ({ border }) => {
   const [showEditForm, setShowEditForm] = useState(false)
   const { username, flat, joined, accounts, status } = border
   const deposits = accounts.reduce((acc, val) => acc + val.amount, 0)
-  const joinDate = new Date(joined).toLocaleDateString()
+  const joinDate = new Date(joined)
 
   if (showEditForm) {
     return <UpdateForm
       border={border}
-      setShowEditForm={setShowEditForm} />
+      setShowEditForm={setShowEditForm}
+      showEditForm={showEditForm} />
   }
   return (
     <Grid item xs={12} sm={8} md={6} lg={4}
@@ -81,7 +82,7 @@ const DisplayGrid = ({ border }) => {
           value={flat} />
         <TextDecorate
           title="Joined Date"
-          value={joinDate} />
+          value={joinDate.toLocaleDateString()} />
         <TextDecorate
           title="Account Balance"
           value={deposits} />
@@ -94,23 +95,16 @@ const DisplayGrid = ({ border }) => {
         <TextDecorate
           title="Status"
           value={status ? "Active" : "Inactive"} />
-        <Button
-          variant="outlined"
-          color="primary"
-          size="small"
+        <CustomButton
           onClick={() => setShowEditForm(true)}
-          className={classes.button}
           startIcon={<EditIcon />}>
           Edit
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          size="small"
+        </CustomButton>
+        <CustomButton
           className={classes.button}
           startIcon={<DeleteIcon />}>
           Delete
-        </Button>
+        </CustomButton>
       </Paper>
     </Grid>
   )
@@ -120,7 +114,7 @@ DisplayGrid.propTypes = {
   border: PropTypes.object
 }
 
-const TextDecorate = ({ title, value }) => {
+export const TextDecorate = ({ title, value }) => {
   return (
     <Typography variant="body2" style={{
       display: "flex", flexDirection: "row",

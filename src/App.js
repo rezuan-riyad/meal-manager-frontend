@@ -3,7 +3,7 @@ import Login from './containers/Login'
 import Signup from './containers/Signup'
 import Dashbord from './containers/Dashbord'
 import Border from './containers/Border'
-import Calender from './components/Calender';
+import Home from './containers/Home'
 
 import CoursesConfigure from './containers/ManagerSection/CoursesConfigure';
 import BordersConfigure from './containers/ManagerSection/BordersConfigure';
@@ -28,7 +28,7 @@ function App() {
             <BrowserRouter>
               <Switch>
                 <Route exact path="/">
-                  <Calender />
+                  <Home />
                 </Route>
                 <Route path="/dashbord">
                   <Dashbord />

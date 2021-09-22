@@ -63,7 +63,7 @@ export default function CoursesConfigure() {
     <Layout>
       <Container>
         <List className={classes.list}>
-          {['Add New Course', 'Set For Tomorrow'].map((item, i) => (
+          {['Add New Course'].map((item, i) => (
             <ListItem
               key={i}
               value={i}
@@ -75,9 +75,6 @@ export default function CoursesConfigure() {
         </List>
         <TabPanel value={value} index={0}>
           <AddNewCourse />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-    
         </TabPanel>
       </Container>
     </Layout>

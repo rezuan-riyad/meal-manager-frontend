@@ -3,10 +3,13 @@ import { createTheme } from "@material-ui/core/styles";
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "rgba(0,0,0,.87)"
+      main: "#006064",
+      dark: "#00363a",
+      light: "rgba(0, 96, 100, 0.2)"
     },
     secondary: {
-      main: "#d32f2f"
+      main: "#006064",
+      extraLight: "#e8f5e9",
     }
   },
   breakpoints: {

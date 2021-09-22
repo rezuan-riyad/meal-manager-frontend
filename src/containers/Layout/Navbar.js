@@ -1,12 +1,11 @@
 import React, { useState, useRef } from 'react'
-import clsx from 'clsx';
 import {
   Toolbar, Typography, Box, Container, Drawer,
-  List, ListItem, ListItemText, Divider
+  List, ListItem, ListItemText, Divider, AppBar
 } from '@material-ui/core'
 import { IconButton } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
-import { withStyles, makeStyles } from '@material-ui/styles'
+import { withStyles, makeStyles } from '@material-ui/core/styles'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { useEffect } from 'react'
 
@@ -23,6 +22,18 @@ const StyledToolBar = withStyles((theme) => {
 })(Toolbar)
 
 const useStyles = makeStyles((theme) => ({
+  heading: {
+    fontSize: "24px",
+    [theme.breakpoints.only('xs')]: {
+      fontSize: "20px"
+    },
+    ['@media(max-width:350px)']: {
+      fontSize: "16px"
+    }
+  },
+  appbar: {
+    background: theme.palette.primary.dark
+  },
   container: {
     display: "flex",
     flexDirection: "row",
@@ -76,7 +87,8 @@ export default function Navbar() {
   })
   return (
     <>
-      <StyledToolBar>
+      <AppBar position="sticky" className={classes.appbar}>
+        <Toolbar>
         <Container className={classes.container}>
           <IconButton
             color="inherit"
@@ -87,11 +99,12 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5">
+          <Typography className={classes.heading}>
             Monthly Cost Management
           </Typography>
         </Container>
-      </StyledToolBar>
+        </Toolbar>
+      </AppBar>
       <Drawer
         anchor="left"
         open={open}
@@ -106,9 +119,9 @@ export default function Navbar() {
             </ListItem>
             {[{ field: 'Configure Courses', link: "/configure-courses" },
             { field: 'Configure Borders', link: "/configure-borders" },
-            { field: 'Add Shopping Data', link: "/add-shopping-data"},
-            { field: 'Change Managership', link: "/change-managership"},
-            { field: 'Set For Tomorrow', link: "/set-for-tomorrow"}].map((item, i) => (
+            { field: 'Add Shopping Data', link: "/add-shopping-data" },
+            { field: 'Change Managership', link: "/change-managership" },
+            { field: 'Set For Tomorrow', link: "/set-for-tomorrow" }].map((item, i) => (
               <ListItem key={i} onClick={handleClose}>
                 <Link to={item.link}>
                   <Typography variant="body2">{item.field}</Typography>

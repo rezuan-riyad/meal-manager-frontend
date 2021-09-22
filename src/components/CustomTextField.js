@@ -18,16 +18,14 @@ const styles = makeStyles(theme => ({
 }))
 
 export default function CustomTextField(props) {
-  const { type, value, name, handleChange, label, helperText } = props
   const classes = styles()
   return (
     <TextField
-      type={type}
+      {...props}
       autoComplete="true"
       size="small"
       variant="outlined"
       fullWidth
-      value={value}
       className={classes.input}
       InputLabelProps={{
         classes: {
@@ -40,10 +38,7 @@ export default function CustomTextField(props) {
           root: classes.inputRoot
         }
       }}
-      name={name}
-      label={label}
-      onChange={handleChange}
-      helperText={helperText}
+      onChange={props.handleChange}
     />
   )
 }

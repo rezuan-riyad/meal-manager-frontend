@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { IconButton, makeStyles, Paper, Typography, Box } from '@material-ui/core'
 import { ArrowLeft, ArrowRight } from '@material-ui/icons'
+import PropTypes from 'prop-types'
 
 const styles = makeStyles(theme => ({
-  root: {
-    
-  },
   calender: {
     border: "1px solid lightgray",
-    width: 350,
-    margin: "0px auto",
     padding: "0 16px",
     borderLeft: "1px solid lightgray",
     borderTop: "1px solid lightgray",
+    margin: "0 auto",
   },
   calenderTitle: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginTop: theme.spacing(2)
   },
   arrowIcon: {
     margin: "0 16px"
@@ -44,10 +42,17 @@ const styles = makeStyles(theme => ({
   }
 }))
 
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
-  'August', 'September', 'October', 'November', 'December']
+Calender.propTypes = {
+  width: PropTypes.number,
+  getDate: PropTypes.func
+}
 
-export default function Calender() {
+Calender.defaultProps = {
+  width: 300,
+}
+
+
+export default function Calender({ width, getDate, preSelectedDate }) {
   const classes = styles()
   const [weekStartDay, setWeekStartDay] = useState()
   const [date, setDate] = useState(new Date())
@@ -56,38 +61,46 @@ export default function Calender() {
   const [daysInMonth, setDaysInMonth] = useState(new Date(year, month + 1, 0))
 
   useEffect(() => {
-    let _temp = new Date(year, parseInt(month) + 1, 0)
-    setDaysInMonth(_temp.getDate())
-    setYear(_temp.getFullYear())
+    if(preSelectedDate){
+      setDate(preSelectedDate)
+    }
+  },[])
+
+  useEffect(() => {
+    let temp = new Date(year, parseInt(month) + 1, 0)
+    setDaysInMonth(temp.getDate())
+    setYear(temp.getFullYear())
   }, [month])
 
   useEffect(() => {
-    let _temp = new Date(year, parseInt(month), 1)
-    setWeekStartDay(_temp.getDay())
+    let temp = new Date(year, parseInt(month), 1)
+    setWeekStartDay(temp.getDay())
   }, [month])
 
   const monthName = () => {
-    let _date = new Date(year, month + 1, 0)
-    let _monthName = _date.toLocaleString('default', { month: 'long' })
-    return _monthName
+    let dd = new Date(year, month + 1, 0)
+    let mm = dd.toLocaleString('default', { month: 'long' })
+    return mm
   }
 
   const onLeftArrowClick = () => {
-    let _month = parseInt(month)
-    if (_month === 0) setYear(year - 1)
-    _month = (_month + 12 - 1) % 12
-    setMonth(_month)
+    let mm = parseInt(month)
+    if (mm === 0) setYear(year - 1)
+    mm = (mm + 12 - 1) % 12
+    setMonth(mm)
   }
   const onRightArrowClick = () => {
-    let _month = parseInt(month)
-    if (_month === 11) setYear(year + 1)
-    _month = (_month + 12 + 1) % 12
-    setMonth(_month)
+    let mm = parseInt(month)
+    if (mm === 11) setYear(year + 1)
+    mm = (mm + 12 + 1) % 12
+    setMonth(mm)
   }
 
   const handleDateSelection = (e) => {
-    let _date = parseInt(e.target.textContent)
-    setDate(new Date(year, month, _date))
+    let dd = parseInt(e.target.textContent)
+    setDate(new Date(year, month, dd))
+    // after date selection , send date value to parent
+    getDate(new Date(year, month, dd))
   }
   const dateStylingClass = (payload) => {
     let _classes = `${classes.date} `
@@ -100,19 +113,9 @@ export default function Calender() {
 
   return (
     <div>
-      <Box textAlign="center">
-        <Typography
-          variant="h5"
-          gutterBottom >
-          Calender {year}
-        </Typography>
-        <Typography
-          variant="body1"
-          gutterBottom >
-            {date.toDateString()}
-        </Typography>
-      </Box>
-      <Paper className={classes.calender} elevation={10}>
+      <Paper className={classes.calender} 
+        elevation={10}
+        style={ width ? { width } : { width: "350px" }}>
         <div className={classes.calenderTitle}>
           <IconButton
             className={classes.arrowIcon}
@@ -120,7 +123,7 @@ export default function Calender() {
             onClick={onLeftArrowClick}>
             <ArrowLeft />
           </IconButton>
-          <h4 style={{ textAlign: "center", marginBottom: "4px" }}>
+          <h4 style={{ textAlign: "center", margin: "0px" }}>
             {monthName()}, {year}
           </h4>
           <IconButton

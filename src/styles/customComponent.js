@@ -1,5 +1,5 @@
 import { withStyles } from "@material-ui/core/styles";
-import { TableCell, TableRow, Paper } from "@material-ui/core";
+import { TableCell, TableRow, Container } from "@material-ui/core";
 
 export const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -19,6 +19,11 @@ export const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-export const StyledPaper = withStyles((theme) => ({
-  
-}))(Paper)
+export const StyledContainer = withStyles((theme) => ({
+  root: {
+    [theme.breakpoints.only('xs')]:{
+      paddingLeft: theme.spacing(1.5),
+      paddingRight: theme.spacing(1.5)
+    }
+  }
+}))(Container);

@@ -13,45 +13,45 @@ const styles = makeStyles(theme => ({
     fontSize: 14
   },
   labelFocused: {
-    fontSize: 16,
+    fontSize: 14,
   },
   inputRoot: {
     fontSize: 14,
   }
 }))
 
-export default function CustomAutocomplete({ options, label, onChange }) {
+export default function CustomAutocomplete(props) {
   const classes = styles()
   return (
     <Autocomplete
+      {...props}
       autoSelect
-      onChange={onChange}
-      options={options}
-      getOptionLabel={(option) => `${option.username}, ${option.flat}`}
+      options={props.options}
+      getOptionLabel={(option) => option}
       renderOption={(option) => {
         return (
           <Typography variant="body2">
-            {option.username}, {option.flat}
+            {option}
           </Typography>
         )
       }}
       renderInput={(params) => <TextField {...params}
-          label={label}
-          variant="outlined"
-          size="small"
-          InputLabelProps={{
-            classes: {
-              root: classes.labelRoot,
-              focused: classes.labelFocused
-            }
-          }}
-          InputProps={{
-            ...params.InputProps,
-            classes: {
-              root: classes.inputRoot
-            }
-          }}
-        />}
+        label={props.label}
+        variant="outlined"
+        size="small"
+        InputLabelProps={{
+          classes: {
+            root: classes.labelRoot,
+            focused: classes.labelFocused
+          }
+        }}
+        InputProps={{
+          ...params.InputProps,
+          classes: {
+            root: classes.inputRoot
+          }
+        }}
+      />}
     />
   );
 }

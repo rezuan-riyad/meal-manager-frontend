@@ -13,7 +13,7 @@ const StyledTableCell = withStyles(theme => ({
     padding: theme.spacing(.5, 1)
   },
   head: {
-    background: theme.palette.text.primary,
+    background: theme.palette.primary.main,
     color: "white",
   },
   body: {
