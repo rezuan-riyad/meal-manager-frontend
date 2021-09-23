@@ -106,6 +106,9 @@ export default function Home() {
           </div>
         </Box>
         <Box mt={7}>
+          <Typography variant="h5" gutterBottom>
+            Money records of this month
+          </Typography>
           <MoneyRecordTable />
         </Box>
       </Container>
