@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/meal-manager-frontend/static/css/main.adc90c60.chunk.css",
+    "main.js": "/meal-manager-frontend/static/js/main.bc286317.chunk.js",
+    "main.js.map": "/meal-manager-frontend/static/js/main.bc286317.chunk.js.map",
+    "runtime-main.js": "/meal-manager-frontend/static/js/runtime-main.ae613c9b.js",
+    "runtime-main.js.map": "/meal-manager-frontend/static/js/runtime-main.ae613c9b.js.map",
+    "static/js/2.8ab7aa1c.chunk.js": "/meal-manager-frontend/static/js/2.8ab7aa1c.chunk.js",
+    "static/js/2.8ab7aa1c.chunk.js.map": "/meal-manager-frontend/static/js/2.8ab7aa1c.chunk.js.map",
+    "static/js/3.84e5e774.chunk.js": "/meal-manager-frontend/static/js/3.84e5e774.chunk.js",
+    "static/js/3.84e5e774.chunk.js.map": "/meal-manager-frontend/static/js/3.84e5e774.chunk.js.map",
+    "index.html": "/meal-manager-frontend/index.html",
+    "static/css/main.adc90c60.chunk.css.map": "/meal-manager-frontend/static/css/main.adc90c60.chunk.css.map",
+    "static/js/2.8ab7aa1c.chunk.js.LICENSE.txt": "/meal-manager-frontend/static/js/2.8ab7aa1c.chunk.js.LICENSE.txt",
+    "static/media/background.9f052c0c.jpg": "/meal-manager-frontend/static/media/background.9f052c0c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ae613c9b.js",
+    "static/js/2.8ab7aa1c.chunk.js",
+    "static/css/main.adc90c60.chunk.css",
+    "static/js/main.bc286317.chunk.js"
+  ]
+}
