@@ -15,7 +15,7 @@ const styles = makeStyles(theme => ({
     justifyContent: "space-around"
   },
   background: {
-    background: theme.palette.primary.light
+    backgroundImage: `linear-gradient(${theme.palette.primary.light}, #eeeeee)`
   }
 }))
 

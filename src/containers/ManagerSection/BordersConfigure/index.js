@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    backgroundImage: `linear-gradient(${theme.palette.primary.light}, #eeeeee)`,
+    padding: theme.spacing(3, 0)
   },
   listItem: {
     width: "auto",
@@ -66,19 +68,19 @@ export default function BordersConfigure() {
   return (
     <Layout>
       <BorderContextProvider>
+        <List className={classes.list}>
+          {['Add New Border', 'Update Border',
+            'Account Balance', 'All Borders'].map((item, i) => (
+              <ListItem
+                key={i}
+                value={i}
+                className={`${i === value ? classes.selected : null} ${classes.listItem} }`}
+                onClick={handleChange}>
+                {item}
+              </ListItem>
+            ))}
+        </List>
         <Container>
-          <List className={classes.list}>
-            {['Add New Border', 'Update Border',
-              'Account Balance', 'All Borders'].map((item, i) => (
-                <ListItem
-                  key={i}
-                  value={i}
-                  className={`${i === value ? classes.selected : null} ${classes.listItem} }`}
-                  onClick={handleChange}>
-                  {item}
-                </ListItem>
-              ))}
-          </List>
           <TabPanel value={value} index={0}>
             <AddBorder tablePanelChange={() => setValue(3)} />
           </TabPanel>

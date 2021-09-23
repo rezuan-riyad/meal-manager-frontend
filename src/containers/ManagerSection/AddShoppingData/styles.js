@@ -5,8 +5,8 @@ export const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: theme.spacing(1),
-    padding: theme.spacing(2, 0),
+    padding: theme.spacing(3, 0),
+    backgroundImage: `linear-gradient(${theme.palette.primary.light}, #eeeeee)`,
     [theme.breakpoints.down('sm')]: {
       flexDirection: "column",
       alignItems: "center"

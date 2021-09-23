@@ -74,6 +74,7 @@ export const useStyles = makeStyles(theme => ({
     }
   },
   table: {
+    marginTop: theme.spacing(3),
     width: "auto",
     [theme.breakpoints.up('md')]: {
       minWidth: "600px"

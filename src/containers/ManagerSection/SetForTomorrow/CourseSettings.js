@@ -124,7 +124,7 @@ export default function () {
             {
               records[0].courseDetails.map(course => (
                 <CustomButton
-                  style={{ marginLeft: "16px" }}
+                  style={{ marginLeft: "16px", marginBottom: "32px" }}
                   key={course.courseId}
                   onClick={() => handleMealsChange(course.courseId)}>
 

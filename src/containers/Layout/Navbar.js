@@ -100,7 +100,7 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.heading}>
-            Monthly Cost Management
+            Sornaly Boarding House
           </Typography>
         </Container>
         </Toolbar>
